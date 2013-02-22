@@ -13,7 +13,7 @@ import java.util.*;
 public class FCFSSchedulingAlgorithm extends BaseSchedulingAlgorithm {
 
     FCFSSchedulingAlgorithm(){
-
+    	
     }
 
     /** Add the new job to the correct queue.*/
@@ -33,6 +33,7 @@ public class FCFSSchedulingAlgorithm extends BaseSchedulingAlgorithm {
 
 
     public boolean shouldPreempt(long currentTime){
+    
     }
 
     /** Returns the next process that should be run by the CPU, null if none available.*/
@@ -40,6 +41,6 @@ public class FCFSSchedulingAlgorithm extends BaseSchedulingAlgorithm {
     }
 
     public String getName(){
-	return "First-come first-served";
+    	return "First-come first-served";
     }
 }
