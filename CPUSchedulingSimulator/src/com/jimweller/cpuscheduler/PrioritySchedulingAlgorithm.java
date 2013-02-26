@@ -8,15 +8,22 @@
  */
 package com.jimweller.cpuscheduler;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class PrioritySchedulingAlgorithm extends BaseSchedulingAlgorithm implements OptionallyPreemptiveSchedulingAlgorithm {
     
 	private boolean preemptive;
 	private PriorityQueue<Process> pqueue;
+	private Process curJob;
 	
     PrioritySchedulingAlgorithm(){
-    	pqueue = new PriorityQueue<Process>();
+    	
+    	Comparator<Process> comp = new PriorityComparator();
+    	pqueue = new PriorityQueue<Process>(50, comp);
+    	curJob = new Process();
+    	curJob = null;
+    	
     }
 
     /** Add the new job to the correct queue.*/
@@ -54,34 +61,27 @@ public class PrioritySchedulingAlgorithm extends BaseSchedulingAlgorithm impleme
     public Process getNextJob(long currentTime){
     	
     	Process nextJob = null;
-    	Process curJob = pqueue.peek();
+ 
     	
-    	if(preemptive && (curJob != null)) // Preemptive
+    	if(preemptive && !pqueue.isEmpty()) // Preemptive
     	{
-    		if(curJob.isFinished())
-    		{
-    			pqueue.remove();
-    			nextJob = pqueue.peek();
-    		}
-    		nextJob = curJob;
+    		nextJob = pqueue.peek();
     	}
     	else // Non-Preemptive
     	{
     		if (!pqueue.isEmpty())
     		{
-    			if (currentTime == 0)
+    			if(curJob == null)
     			{
     				nextJob = pqueue.peek();
+    				curJob = nextJob;
     			}
-    			else
+    		    if(curJob.isFinished())
     			{
-    				if(currentTime == curJob.getFinishTime())
-    				{
-    					pqueue.remove();
-    					nextJob = pqueue.peek();
-    				}
+    		    	nextJob = pqueue.peek();
+    				curJob = nextJob;
     			}
-    			
+    		    nextJob = curJob;
     		}
     	}
     	
@@ -104,5 +104,34 @@ public class PrioritySchedulingAlgorithm extends BaseSchedulingAlgorithm impleme
      */
     public void setPreemptive(boolean  v){
 	preemptive = v;
+    }
+    
+    // Priority Comparator 
+    
+    private class PriorityComparator implements Comparator<Process>
+    {
+
+		@Override 
+		public int compare(Process p1, Process p2) {
+			
+			int comp = 0;
+			
+			if(p1 != null && p2 != null)
+			{
+				if(p1.getPriorityWeight() < p2.getPriorityWeight())
+				{
+					comp = -1;
+				}
+				
+				if(p1.getPriorityWeight() > p2.getPriorityWeight())
+				{
+					comp = 1;
+				}
+			
+			}
+		
+			return comp;
+		}
+    	
     }
 }
