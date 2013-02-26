@@ -2,7 +2,7 @@
  * 
  * A first-come first-served scheduling algorithm.
  *
- * @author: Kyle Benson
+ * @author: Mannchuoy Yam(16461232)
  * Winter 2013
  *
  */
@@ -16,8 +16,7 @@ public class FCFSSchedulingAlgorithm extends BaseSchedulingAlgorithm {
     
 	FCFSSchedulingAlgorithm(){
 		activeJob = null;
-		jobs = new Vector<Process>();
-    	
+		jobs = new Vector<Process>(); 	
     }
 
     /** Add the new job to the correct queue.*/
