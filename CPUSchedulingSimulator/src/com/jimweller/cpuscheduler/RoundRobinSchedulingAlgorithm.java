@@ -25,6 +25,7 @@ public class RoundRobinSchedulingAlgorithm extends BaseSchedulingAlgorithm {
 
     /** Returns true if the job was present and was removed. */
     public boolean removeJob(Process p) {
+    	return true;
     }
 
     /** Transfer all the jobs in the queue of a SchedulingAlgorithm to another, such as
@@ -56,6 +57,7 @@ public class RoundRobinSchedulingAlgorithm extends BaseSchedulingAlgorithm {
      * available.
      */
     public Process getNextJob(long currentTime) {
+    	return null;
     }
 
     public String getName() {
