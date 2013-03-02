@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="src/lib/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="src/lib/slf4j-simple-1.6.1.jar"/>
 	<classpathentry kind="lib" path="src/lib/xml-apis-1.0.b2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
