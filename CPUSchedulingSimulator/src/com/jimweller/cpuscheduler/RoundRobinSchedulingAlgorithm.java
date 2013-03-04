@@ -14,8 +14,10 @@ public class RoundRobinSchedulingAlgorithm extends BaseSchedulingAlgorithm {
 
     /** the timeslice each process gets */
     private int quantum;
+    private LinkedList<Process> list;
 
     RoundRobinSchedulingAlgorithm() {
+    	list = new LinkedList<Process>();
     }
 
     /** Add the new job to the correct queue. */

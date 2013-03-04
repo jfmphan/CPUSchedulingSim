@@ -10,6 +10,10 @@
 	<classpathentry kind="lib" path="src/lib/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="src/lib/slf4j-simple-1.6.1.jar"/>
 	<classpathentry kind="lib" path="src/lib/xml-apis-1.0.b2.jar"/>
+<<<<<<< HEAD
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+=======
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+>>>>>>> Justin's-Branch
 	<classpathentry kind="output" path="bin"/>
 </classpath>
