@@ -26,11 +26,9 @@ public class FCFSSchedulingAlgorithm extends BaseSchedulingAlgorithm {
     
     /** Returns true if the job was present and was removed. */
     public boolean removeJob(Process p){
-<<<<<<< HEAD
-    	return true;
-=======
+    	
     	return jobs.remove(p);
->>>>>>> origin/Yam
+
     }
 
     /** Transfer all the jobs in the queue of a SchedulingAlgorithm to another, such as
@@ -47,21 +45,14 @@ public class FCFSSchedulingAlgorithm extends BaseSchedulingAlgorithm {
 
     public boolean shouldPreempt(long currentTime){
     	return true;
-<<<<<<< HEAD
-=======
-    	
-    
->>>>>>> origin/Yam
     }
 
     /** Returns the next process that should be run by the CPU, null if none available.*/
     public Process getNextJob(long currentTime){
-<<<<<<< HEAD
-    	return null;
-=======
+
     	activeJob = jobs.firstElement();
     	return activeJob;
->>>>>>> origin/Yam
+
     }
 
     public String getName(){
